@@ -1,0 +1,145 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    flex: 1 ;
+}
+
+.navbar {
+    background-color: white;
+    height: 5rem;
+}
+
+.fa-fade {
+    padding-left: 20px;
+    font-size: 2rem;
+    color: red;
+    background-color: white;
+}
+
+.nav-link {
+    color: black;
+}
+
+.nav-link:hover {
+    color: red !important;
+}
+
+
+
+.f-info-links a {
+    text-decoration-line: none;
+    color: black;
+    font-size: 1.2rem;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+    color: red !important;
+}
+
+.info-social,
+.f-info-links,
+.f-info-brand {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-social-i {
+    font-size: 1.2rem;
+    vertical-align: middle;
+    margin-right: 1rem;
+}
+
+.f-info {
+    text-align: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    display: flex;
+    height: 8rem;
+    flex-wrap: wrap;
+    align-items: space-evenly;
+    background-color: darkgrey;
+}
+
+.listing-card {
+    border: none !important;
+    margin-bottom: 2rem;
+
+}
+
+.card-img-top {
+    border: 1px solid red;
+    border-radius: 1rem !important;
+    object-fit: cover !important;
+    width: 100% !important;
+
+}
+
+.card-body {
+    padding: 0 !important;
+}
+
+.card-text p {
+    font-weight: 400;
+}
+
+.listing-link {
+    text-decoration: none;
+}
+
+.card-img-overlay {
+    opacity: 0;
+}
+
+.card-img-overlay:hover {
+    opacity: 0.4;
+    background-color: aliceblue;
+}
+
+.over-img {
+    color: rgb(201, 30, 30);
+    text-align: center;
+}
+
+.ad-btn {
+    border: none !important;
+    border-radius: 1rem;
+    font-size: 1rem;
+    background-color: red !important;
+}
+
+.edit-btn {
+
+    border: none !important;
+    border-radius: 1rem;
+    font-size: 1rem;
+    background-color: red !important;
+
+}
+
+/* show Page */
+
+.show-img{
+height: 30vh;
+}
+
+.btns{
+    display: flex;
+}
+
+.show-card{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#map{
+    height: 400px;
+    width: 100vh;
+}
