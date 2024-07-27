@@ -19,7 +19,6 @@ const listings = require("./routes/listing.js");
 const review = require("./routes/review.js");
 const user = require("./routes/user.js");
 const dbUrl = process.env.ATLASDB_URL;
-// const MONGOURL = ("mongodb://127.0.0.1:27017/wanderlust")
 const flash = require("connect-flash");
 
 Main()
@@ -74,15 +73,6 @@ passport.use(new LocalStrategy(User.authenticate()));
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-
-// app.get("/getuser",async(req,res)=>{
-//     let fakeUsr = new User({
-//         email:"harshilpanchal952912gmail.com",
-//         username:"harshil panchal",
-//     })
-//     let resultUsr = await User.register(fakeUsr,"harshil0099")
-//     res.send(resultUsr)
-// })
 
 app.use((req, res, next) => {
   res.locals.success = req.flash("success");

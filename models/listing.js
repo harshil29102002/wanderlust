@@ -1,19 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const Review = require("./review.js");
-// const MONGOURL = "mongodb://127.0.0.1:27017/wanderlust";
-
-// Main()
-//     .then((res) => {
-//         console.log("welcome to MonGo world");
-//     })
-//     .catch((err) => {
-//         console.log(err);
-//     });
-
-// async function Main() {
-//     await mongoose.connect(MONGOURL);
-// }
 
 const listingSchema = new Schema({
     title: {
@@ -64,7 +51,4 @@ const Listing = mongoose.model("Listing", listingSchema);
 
 module.exports = Listing;
 
-// Listing.findByIdAndDelete("668661fbb30e5016ebd30ddb",{new:true})
-// .then((res)=>{
-//     console.log(res)
-// })
+
