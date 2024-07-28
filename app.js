@@ -11,6 +11,7 @@ const ejsMate = require("ejs-mate");
 const ExpressError = require("./utils/ExpressError");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
+const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
@@ -19,7 +20,6 @@ const listings = require("./routes/listing.js");
 const review = require("./routes/review.js");
 const user = require("./routes/user.js");
 const dbUrl = process.env.ATLASDB_URL;
-const flash = require("connect-flash");
 
 Main()
   .then((res) => {
