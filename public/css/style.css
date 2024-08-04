@@ -139,11 +139,9 @@ height: 30vh;
     padding-right: 0;
 }
 
-@media (min-width:375px) and (max-width:667){
+
 #map{
-    display: block;
     height: 400px;
     width: 100vh;
-    background-color: chartreuse;
-}
+    
 }
