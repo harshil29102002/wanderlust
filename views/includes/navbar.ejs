@@ -1,62 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Navbar with Sidebar</title>
 
-<style>
-  .btn-search {
-    background-color: red;
-    color: whitesmoke;
-    border-radius: 25px;
-    padding: 0 1rem 0 1rem;
-  }
+  <!-- Bootstrap CSS -->
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">   -->
+  <style>
+    .btn-search {
+      background-color: red;
+      color: whitesmoke;
+      border-radius: 25px;
+      padding: 0 1rem;
+    }
 
-  .btn-search:hover {
-    background-color: rgb(251, 0, 0);
-    color: whitesmoke;
-  }
+    .btn-search:hover {
+      background-color: rgb(251, 0, 0);
+      color: whitesmoke;
+    }
 
-  .btn-search i {
-    display: inline;
-    margin-right: 0.8rem;
-  }
+    .btn-search i {
+      display: inline;
+      margin-right: 0.8rem;
+    }
 
-  .search-inp {
-    border: 1.2px solid red;
-    border-radius: 25px;
-    padding: 0.2rem 5rem 0.2rem 5rem;
-    font-size: 1rem;
-  }
-</style>
-<nav class="navbar navbar-expand-md bg-body-light sticky-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/listings">
-      <i class="fa-brands fa-airbnb fa-fade fa-xl"></i></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" href="/listings">WanderLust</a>
-      </div>
+    .search-inp {
+      border: 1.2px solid red;
+      border-radius: 25px;
+      height: 0.5rem;
+      padding: 1rem 1rem;
+      font-size: 1rem;
+    }
 
-      <div class="navbar-nav ms-auto">
-        <form class="d-flex" role="search">
-          <input class="form-control me-2 search-inp" type="search" placeholder="search destination" />
-          <button class="btn btn-search" type="submit">
-            <i class="fa-brands fa-searchengin"></i>Search
-          </button>
-        </form>
-      </div>
+    /* Sidebar styles */
+    .offcanvas-collapse {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: -250px;
+      width: 250px;
+      padding: 1rem;
+      background-color: #f8f9fa;
+      transition: left 0.3s ease-in-out;
+      z-index: 1035;
+    }
 
-      <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="/listings/new">Airbnb your home</a>
-        <% if(!currusr) { %>
-          <a class="nav-link" href="/signup"><b>Signup</b></a>
-          <a class="nav-link" href="/login"><b>Login</b></a>
+    .offcanvas-collapse.open {
+      left: 0;
+    }
+
+    .navbar-toggler {
+      margin-right: 1rem;
+    }
+
+    /* Hides the sidebar on large screens */
+    @media (min-width: 768px) {
+      .offcanvas-collapse {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-md navbar-light">
+    <div class="container-fluid">
+      <!-- Brand Icon -->
+      <a class="navbar-brand" href="/listings">
+        <i class="fa-brands fa-weebly fa-fade"></i>
+      </a>
+
+      <!-- Toggler button for small screens -->
+      <button class="navbar-toggler" type="button" id="navbarSideCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar items (for larger screens) -->
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <!-- Left-aligned links -->
+        <div class="navbar-nav">
+          <a class="nav-link" href="/listings">WanderLust</a>
+        </div>
+
+        <!-- Search form -->
+        <div class="navbar-nav ms-auto">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2 search-inp" type="search" placeholder="Search destination" />
+            <button class="btn btn-search" type="submit">
+              <i class="fa-brands fa-searchengin"></i>Search
+            </button>
+          </form>
+        </div>
+
+        <!-- Right-aligned links -->
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link" href="/listings/new">Airbnb your home</a>
+          <% if(!currusr) { %>
+            <a class="nav-link" href="/signup"><b>Signup</b></a>
+            <a class="nav-link" href="/login"><b>Login</b></a>
           <% } %>
-            <% if(currusr) { %>
-              <a class="nav-link" href="/logout"><b>Log out</b></a>
-              <% } %>
+          <% if(currusr) { %>
+            <a class="nav-link" href="/logout"><b>Log out</b></a>
+          <% } %>
+        </div>
       </div>
     </div>
+  </nav>
+
+  <!-- Sidebar Content (visible only on small screens) -->
+  <div class="offcanvas-collapse" id="offcanvas-collapse">
+    <!-- Sidebar links -->
+    <div class="navbar-nav">
+      <a class="nav-link" href="/listings">WanderLust</a>
+      <a class="nav-link" href="/listings/new">Airbnb your home</a>
+      <% if(!currusr) { %>
+        <a class="nav-link" href="/signup"><b>Signup</b></a>
+        <a class="nav-link" href="/login"><b>Login</b></a>
+      <% } %>
+      <% if(currusr) { %>
+        <a class="nav-link" href="/logout"><b>Log out</b></a>
+      <% } %>
+    </div>
+
+    <!-- Sidebar search form -->
+    <div class="navbar-nav mt-3">
+      <form class="d-flex" role="search">
+        <input class="form-control me-2 search-inp" type="search" placeholder="Search destination" />
+        <button class="btn btn-search" type="submit">
+          <i class="fa-brands fa-searchengin"></i>Search
+        </button>
+      </form>
+    </div>
   </div>
-</nav>
-<hr/>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <!-- Custom Script for Sidebar Collapse -->
+  <script>
+    document.getElementById('navbarSideCollapse').addEventListener('click', function() {
+      var offcanvas = document.getElementById('offcanvas-collapse');
+      offcanvas.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>

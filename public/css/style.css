@@ -3,6 +3,11 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    /* height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0; */
+    overflow-x: hidden;
 }
 
 .container {
@@ -33,8 +38,9 @@ body {
 
 .f-info-links a {
     text-decoration-line: none;
-    color: black;
+    color: red;
     font-size: 1.2rem;
+    
 }
 
 .f-info-links a:hover {
@@ -55,6 +61,19 @@ body {
     font-size: 1.2rem;
     vertical-align: middle;
     margin-right: 1rem;
+    color: red;
+    
+}
+
+.fa-brands{
+    color: red;
+    padding-right: 14px;
+
+}
+
+.fa-brands:hover{
+    color:black;
+    cursor: pointer;
 }
 
 .f-info {
@@ -65,13 +84,13 @@ body {
     height: 8rem;
     flex-wrap: wrap;
     align-items: space-evenly;
-    background-color: darkgrey;
+    background-color: white;
+    
 }
 
 .listing-card {
     border: none !important;
     margin-bottom: 2rem;
-
 }
 
 .card-img-top {
@@ -79,7 +98,7 @@ body {
     border-radius: 1rem !important;
     object-fit: cover !important;
     width: 100% !important;
-
+   
 }
 
 .card-body {
@@ -142,6 +161,7 @@ height: 30vh;
 
 #map{
     height: 400px;
-    width: 100vh;
+    width: 60%;
     
+    border-radius: 10px;
 }
